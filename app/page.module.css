@@ -1,9 +1,16 @@
-.container{
 
+.container{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+width: 100%;
+gap: 2rem;
 } 
 
 .navigator{
   display: flex;
+ 
 }
 
 .navigatorButtons{
@@ -11,10 +18,73 @@
   padding: 10px;
   font-size: 20px;
   border: none;
-  background-color: rgb(103, 103, 255);
+  background-color: royalblue;
   color: white;
+  cursor: pointer;
+}
+.activebtn{
+  color: white;
+  background-color: rgb(84, 19, 149);
 }
 
 .navigatorButtons:nth-child(1) {
   border-right: 2px solid white;
+}
+.navigatorButtons:nth-child(2) {
+  border-right: 2px solid white;
+}
+
+.history{
+ 
+  width: 400px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(84, 19, 149);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.history h1{
+  text-align: center;
+  opacity: 0.7;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+.history ul{
+  height: 300px;
+  overflow-y: scroll;
+}
+.history ul li{
+  padding-bottom: 0.6rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.history ul li:hover button {
+  transform: translate(-100px, 0px);
+  opacity: 1;
+}
+.history button{
+
+  opacity: 0;
+  background-color: royalblue;
+  font-size: 1rem;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(100%, 0px);
+  transition: opacity 0.2s ease, transform 0.5s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.hr{
+  opacity: 0.6;
+  margin-bottom: 1rem;
 }
