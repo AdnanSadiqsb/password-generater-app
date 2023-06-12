@@ -2,12 +2,16 @@
 import styles from "./complex.css";
 import { useState } from 'react';
 
-export default function Simple() {
+export default function Simple(props) {
+    const {getAllPAsswords, AddPassword}=props
     const [password, setPassword] = useState("");
     function generateRandomNumber(length) {
         var min = Math.pow(10, length - 1);
         var max = Math.pow(10, length) - 1;
-        setPassword (Math.floor(Math.random() * (max - min + 1)) + min)
+        var pass=Math.floor(Math.random() * (max - min + 1)) + min
+        setPassword (pass)
+        AddPassword(pass, 'simple')
+        getAllPAsswords('simple')
         }
     const copyToClipBoard=()=>{
         password? navigator.clipboard.writeText(password):navigator.clipboard.writeText('Welcome')

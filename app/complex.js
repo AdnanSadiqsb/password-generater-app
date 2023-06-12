@@ -1,7 +1,8 @@
 import styles from "./complex.css";
 import { useState } from "react";
 
-export default function Simple() {
+export default function Simple(props) {
+  const {getAllPAsswords, AddPassword} =props
   const [password, setPassword] = useState("");
   function generateRandomString(length) {
     const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_-+=';
@@ -11,6 +12,8 @@ export default function Simple() {
       randomString += chars.charAt(randomIndex);
     }
     setPassword (randomString);
+    AddPassword(randomString,'complex')
+    getAllPAsswords('complex')
   }
   
 const copyToClipBoard=()=>{

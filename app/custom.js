@@ -1,8 +1,8 @@
 import styles from "./complex.css";
 import { useState } from "react";
-
-export default function Custom() {
-
+import axios from "axios";
+export default function Custom(props) {
+    const {getAllPAsswords, AddPassword} =props
   const [passwordMain, setPassword] = useState("");
   const upperLetters = 'ABCDEFGHIJKLMANOPQRSTUVWXYZ';
   const lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
@@ -56,13 +56,17 @@ export default function Custom() {
           password += x;
       }
   
-      console.log(password)
+
       setPassword (password);
+      AddPassword(password,'custom')
+      getAllPAsswords('custom')
   }
   
   const copyToClipBoard=()=>{
     passwordMain? navigator.clipboard.writeText(passwordMain):navigator.clipboard.writeText('Welcome')
 }
+
+
   return (
     <div class="pw-container">
     <div class="pw-header">
